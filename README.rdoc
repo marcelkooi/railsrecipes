@@ -12,3 +12,4 @@ Need:
 7. Authenticated chefs can create reviews, before_action require_user
 8. Associate chef_id and recipe_id 
 9. Use existing code if possible (pagination)
+10. Use new branch (lecture 36 and 38)

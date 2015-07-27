@@ -9,7 +9,9 @@
   </li>
 </ul>
 
+<div class="center">
 <%= will_paginate %>
+</div>
 
 <% @recipes.each do |recipe| %>
   <div class="row">
@@ -17,7 +19,7 @@
     <div class="col-md-2">
       <section class="chef_info center">
         <%= link_to gravatar_for(recipe.chef, size: 100), chef_path(recipe.chef) %>
-        <h5>Chef name: <%= recipe.chef.chefname %> </h5>
+        <br/>Chef Name: <strong><%= recipe.chef.chefname %></strong>
       </section>
     </div>
     
@@ -36,10 +38,10 @@
       </p>
       <div class="pull-right">
         <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
-          <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= recipe.thumbs_up_total %>
-        <% end %> &nbsp&nbsp&nbsp&nbsp
+          <i class="glyphicon glyphicon-thumbs-up"></i> <%= recipe.thumbs_up_total %>
+        <% end %> &nbsp|&nbsp
         <%= link_to like_recipe_path(recipe, like: false), method: :post do %> 
-          <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= recipe.thumbs_down_total %>
+          <i class="glyphicon glyphicon-thumbs-down"></i> <%= recipe.thumbs_down_total %>
         <% end %>
       </div>
     </div>
@@ -52,4 +54,6 @@
   <hr/>
 <% end %>
 
+<div class="center">
 <%= will_paginate %>
+</div>

@@ -17,12 +17,26 @@
 
 <% @chefs.each do |chef| %>
   <div class="row">
-    <div class="col-md-4 col-md-offset-4 center">
+    <div class="col-md-8 col-md-offset-2 center well">
+      <div class="col-md-4">
       <%= link_to gravatar_for(chef, size: 200), chef_path(chef) %>
-      <p>
-        <h5>Chef name: <%= chef.chefname %></h5>
-      </p>
+      </div>
+      <div class="col-md-8">
+        <div class="chefname"><%= chef.chefname %></div>
+        <div class="recname">
+        <% if chef.recipes.any? %>
+        <strong>Recipes:</strong>
+          <% chef.recipes.each do |rec| %>
+            <br/>&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;<%= link_to rec.name, recipe_path(rec) %>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
 <% end %>
+
+<div class="center">
+<%= will_paginate %>
+</div>

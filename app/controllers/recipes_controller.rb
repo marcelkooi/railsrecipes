@@ -62,11 +62,11 @@ class RecipesController < ApplicationController
   
   def review
     review = Review.create(body: params[:body], chef: current_user, recipe: @recipe)
-    if review.valid?
-      flash[:success] = "Thank you for reviewing this recipe"
-    else
-      flash[:danger] = "Review failed to post"
-    end
+      if review.valid?
+        flash[:success] = "Thank you for reviewing this recipe"
+      else
+        flash[:danger] = "Review failed to post"
+      end
     redirect_to :back
   end
   
